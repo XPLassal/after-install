@@ -4,7 +4,7 @@ Google drive
 
 git clone https://github.com/end-4/dots-hyprland.git
 cd dots-hyprland
-./setup
+./setup install
 
 --- Disable WiFi powersave ---
 
