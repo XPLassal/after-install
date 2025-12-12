@@ -1,0 +1,16 @@
+{
+  "icon_theme": "Material Icon Theme",
+  "ui_font_size": 16,
+  "autosave": "on_focus_change",
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "system",
+    "light": "macOS Classic Light",
+    "dark": "JetBrains New Dark"
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  }
+}

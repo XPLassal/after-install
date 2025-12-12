@@ -1,0 +1,35 @@
+Google drive
+
+--- Disable WiFi powersave ---
+
+echo -e '[connection]\nwifi.powersave = 2' | sudo tee /etc/NetworkManager/conf.d/99-wifi-powersave-off.conf
+
+--- Base PKG ---
+sudo pacman -Rnsdd swappy
+
+paru -Syu --noconfirm --needed sddm zed haruna loupe ark zen-browser telegram-desktop ttf-jetbrains-mono papirus-icon-theme vimix-cursors mission-center spotify-launcher visual-studio-code-bin
+
+sudo pacman -Rns --noconfirm octopi cachyos-zsh-config micro cachyos-micro-settings meld cachyos-packageinstaller cachyos-wallpapers cachyos-plymouth-bootanimation
+
+--- SDDM Theme ---
+
+git clone https://github.com/Keyitdev/sddm-astronaut-theme
+cd sddm-astronaut-theme
+./install.sh
+
+--- --- --- --- ---
+
+code /etc/environment
+__GL_SHADER_DISK_CACHE_SIZE=12000000000
+
+code /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT='nowatchdog nvme_load=YES zswap.enabled=0 quiet splash loglevel=0'
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+code /etc/mkinitcpio.conf
+COMPRESSION="lz4"
+sudo mkinitcpio -P
+
+--- Minecraft ---
+
+-XX:+UnlockExperimentalVMOptions -XX:+UseZGC -XX:+ZGenerational

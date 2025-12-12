@@ -1,0 +1,16 @@
+{
+  "http handler params": {
+    "prefix": "wr",
+    "body": ["w http.ResponseWriter, r *http.Request"],
+    "description": "w http.ResponseWriter, r *http.Request"
+  },
+  "Full HTTP Handler": {
+    "prefix": "handler",
+    "body": [
+      "func ${1:Name}Handler(w http.ResponseWriter, r *http.Request) {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Full http.HandlerFunc template"
+  }
+}
