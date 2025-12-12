@@ -1,5 +1,11 @@
 Google drive
 
+--- Install End-4 ---
+
+git clone https://github.com/end-4/dots-hyprland.git
+cd dots-hyprland
+./setup
+
 --- Disable WiFi powersave ---
 
 echo -e '[connection]\nwifi.powersave = 2' | sudo tee /etc/NetworkManager/conf.d/99-wifi-powersave-off.conf
