@@ -6,6 +6,12 @@ git clone https://github.com/end-4/dots-hyprland.git
 cd dots-hyprland
 ./setup install
 
+--- Set Config ---
+
+zeditor ~/.config/hypr
+zeditor ~/.config/zed
+zeditor ~/.config/kitty
+
 --- Disable WiFi powersave ---
 
 echo -e '[connection]\nwifi.powersave = 2' | sudo tee /etc/NetworkManager/conf.d/99-wifi-powersave-off.conf
