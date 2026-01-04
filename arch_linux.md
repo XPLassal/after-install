@@ -35,7 +35,8 @@ paru -Syu --needed \
   ffmpegthumbs kdegraphics-thumbnailers qt6-imageformats \
   libva-mesa-driver libva-utils \
   timeshift kitty starship eza \
-  ananicy-cpp rate-mirrors amd-ucode \
+  ananicy-cpp rate-mirrors amd-ucode nvidia-prime \
+  bat arch-update
 ```
 
 ### Удаление лишнего (KDE)
