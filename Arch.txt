@@ -1,0 +1,119 @@
+ echo -e '[connection]\nwifi.powersave = 2' | sudo tee /etc/NetworkManager/conf.d/99-wifi-powersave-off.conf
+
+
+sudo pacman -S --needed base-devel git
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+
+
+paru -Syu --needed fish zen-browser-bin telegram-desktop ttf-jetbrains-mono-nerd ttf-jetbrains-mono papirus-icon-theme vimix-cursors mission-center spotify visual-studio-code-bin alhp-keyring alhp-mirrorlist reflector pacman-contrib plocate gst-libav gst-plugins-ugly gst-plugins-good gst-plugins-bad gst-plugin-pipewire ffmpegthumbs kdegraphics-thumbnailers qt6-imageformats libva-mesa-driver libva-utils timeshift kitty starship eza ananicy-cpp-git rate-mirrors
+sudo pacman -Rdd discover plasma-welcome plasma-systemmonitor
+sudo pacman -Rns htop kate konsole
+chsh -s /usr/bin/fish
+
+
+
+code /etc/pacman.conf /etc/default/grub /etc/mkinitcpio.conf /etc/systemd/zram-generator.conf
+
+
+
+[options]
+
+HoldPkg     = pacman glibc
+Architecture = auto
+
+
+# Визуальные улучшения
+
+Color
+ILoveCandy
+CheckSpace
+VerbosePkgLists
+ParallelDownloads = 10
+
+
+# Безопасность и пути
+
+SigLevel    = Required DatabaseOptional
+LocalFileSigLevel = Optional
+DownloadUser = alpm
+
+
+ALHP, CHAOTIOC AUR
+sudo pacman -Syyuu
+
+GRUB_CMDLINE_LINUX_DEFAULT="nowatchdog nvidia-drm.modeset=1 zswap.enabled=0 quiet loglevel=3 8250.nr_uarts=0"
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+
+[zram0]
+zram-size = min(ram, 8192)
+compression-algorithm = zstd
+swap-priority = 100
+
+
+MODULES=(amdgpu nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+
+HOOKS=(systemd autodetect microcode modconf kms sd-vconsole block filesystems fsck)
+
+sudo mkinitcpio -P
+
+
+sudo systemctl daemon-reload
+sudo systemctl start systemd-zram-setup@zram0.service
+sudo systemctl enable --now fstrim.timer
+sudo systemctl enable --now paccache.timer
+sudo systemctl enable --now plocate-updatedb.timer
+sudo systemctl enable --now ananicy-cpp
+sudo systemctl enable --now systemd-resolved
+sudo systemctl enable --now dbus-broker.service
+sudo systemctl enable --global dbus-broker.service
+sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+
+
+
+code /etc/fstab
+
+noatime
+
+
+code ~/.config/kitty
+
+code ~/.config/fish
+
+
+echo 'ACTION=="add|change", KERNEL=="nvme[0-9]n[1-9]", ATTR{queue/scheduler}="none"' | sudo tee /etc/udev/rules.d/60-ioschedulers.rules
+
+
+sudo tee /etc/sysctl.d/99-custom-performance.conf > /dev/null <<'EOF'
+
+net.core.default_qdisc=fq
+
+net.ipv4.tcp_congestion_control=bbr
+
+vm.vfs_cache_pressure=50
+
+EOF
+
+
+sudo sysctl --system
+
+exit
+
+
+
+sudo pacman -S ufw
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw enable
+sudo systemctl enable --now ufw
+
+
+
+code /etc/makepkg.conf
+
+
+sudo rm /etc/resolv.conf
+
+sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf

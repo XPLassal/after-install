@@ -1,7 +1,4 @@
 function fish_prompt -d "Write out the prompt"
-    # This shows up as USER@HOST /home/user/ >, with the directory colored
-    # $USER and $hostname are set by fish, so you can just use them
-    # instead of using `whoami` and `hostname`
     printf '%s@%s %s%s%s > ' $USER $hostname \
         (set_color $fish_color_cwd) (prompt_pwd) (set_color normal)
 end
@@ -14,10 +11,6 @@ if status is-interactive # Commands to run in interactive sessions can go here
     # Use starship
     starship init fish | source
 
-    # if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt
-    #     cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt
-    # end
-
     # Aliases
     alias pamcan pacman
     alias ls 'eza --icons'
@@ -26,4 +19,21 @@ if status is-interactive # Commands to run in interactive sessions can go here
     alias i 'paru -Sy'
     alias r 'paru -Rns'
 
+end
+
+function update-mirrors
+    echo "🚀 Ищем самые быстрые зеркала..."
+    set TMPFILE (mktemp)
+    # Ищем зеркала (свежесть 6 часов)
+    rate-mirrors --save=$TMPFILE arch --max-delay=21600
+    or return 1
+
+    # Применяем
+    sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup
+    sudo mv $TMPFILE /etc/pacman.d/mirrorlist
+
+    # Обновляем базы и чистим кэш (оставляем 3 версии пакетов)
+    echo "📦 Обновляем систему..."
+    sudo paccache -rk3
+    paru -Syyu --noconfirm
 end
