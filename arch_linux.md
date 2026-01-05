@@ -228,6 +228,7 @@ sudo tee /etc/sysctl.d/99-custom-performance.conf > /dev/null <<'EOF'
 net.core.default_qdisc=fq
 net.ipv4.tcp_congestion_control=bbr
 vm.vfs_cache_pressure=50
+vm.swappiness=150
 EOF
 
 sudo sysctl --system
