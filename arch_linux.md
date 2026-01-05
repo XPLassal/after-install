@@ -30,14 +30,14 @@ paru -Syu --needed \
   papirus-icon-theme vimix-cursors mission-center \
   spotify visual-studio-code-bin \
   alhp-keyring alhp-mirrorlist \
-  reflector pacman-contrib plocate \
+  pacman-contrib plocate \
   gst-libav gst-plugins-{good,bad,ugly} gst-plugin-pipewire \
   ffmpegthumbs kdegraphics-thumbnailers qt6-imageformats \
   libva-mesa-driver libva-utils \
   timeshift kitty starship eza \
   ananicy-cpp rate-mirrors amd-ucode nvidia-prime \
   bat arch-update apple-fonts gnome-calculator \
-  gnome-clocks
+  gnome-clocks tuned tuned-ppd 
 ```
 
 ### Удаление лишнего (KDE)
@@ -102,7 +102,6 @@ Color
 ILoveCandy
 CheckSpace
 VerbosePkgLists
-ParallelDownloads = 10
 
 # Безопасность
 SigLevel = Required DatabaseOptional
@@ -228,7 +227,7 @@ sudo tee /etc/sysctl.d/99-custom-performance.conf > /dev/null <<'EOF'
 net.core.default_qdisc=fq
 net.ipv4.tcp_congestion_control=bbr
 vm.vfs_cache_pressure=50
-vm.swappiness=150
+vm.swappiness=100
 EOF
 
 sudo sysctl --system
