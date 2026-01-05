@@ -36,14 +36,23 @@ paru -Syu --needed \
   libva-mesa-driver libva-utils \
   timeshift kitty starship eza \
   ananicy-cpp rate-mirrors amd-ucode nvidia-prime \
-  bat arch-update
+  bat arch-update apple-fonts gnome-calculator \
+  gnome-clocks
 ```
 
 ### Удаление лишнего (KDE)
 
 ```bash
-sudo pacman -Rdd discover plasma-welcome plasma-systemmonitor
+sudo pacman -Rdd discover plasma-welcome plasma-systemmonitor drkonqi
 sudo pacman -Rns htop kate konsole
+```
+---
+
+### Удаление лишнего (GNOME)
+
+```bash
+sudo pacman -Rns --noconfirm gnome-calendar gnome-connections gnome-contacts gnome-disk-utility baobab simple-scan gnome-font-viewer gnome-logs gnome-maps gnome-music malcontent gnome-software gnome-system-monitor gnome-tour gnome-weather epiphany snapshot decibels orca yelp gnome-user-docs gnome-characters showtime papers rygel gnome-console gnome-text-editor
+sudo pacman -Rdd gnome-color-manager ibus evince
 ```
 
 ---
