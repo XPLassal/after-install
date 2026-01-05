@@ -55,6 +55,20 @@ sudo pacman -Rns --noconfirm gnome-calendar gnome-connections gnome-contacts gno
 sudo pacman -Rdd gnome-color-manager ibus evince
 ```
 
+### Настройка тачпада GNOME
+```bash
+paru -Syu libinput-config-git
+sudo echo -e "override-compositor=enabled\nscroll-factor=0.5" | sudo tee /etc/libinput.conf > /dev/null
+```
+#### Quick Lang Switch
+
+
+### Настройка SDDM
+
+```bash
+sudo echo -e "[General]\nNumlock=on" | sudo tee /etc/sddm.conf > /dev/null
+```
+
 ---
 
 ## 3. Fish shell по умолчанию
