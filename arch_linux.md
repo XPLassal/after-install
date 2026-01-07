@@ -37,7 +37,9 @@ paru -Syu --needed \
   timeshift kitty starship eza \
   ananicy-cpp rate-mirrors amd-ucode nvidia-prime \
   bat arch-update apple-fonts gnome-calculator \
-  gnome-clocks tuned tuned-ppd 
+  gnome-clocks tuned tuned-ppd \
+  noto-fonts noto-fonts-cjk noto-fonts-emoji \
+  ttf-dejavu ttf-liberation noto-fonts-extra
 ```
 
 ### Удаление лишнего (KDE)
