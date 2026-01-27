@@ -24,18 +24,26 @@ if status is-interactive # Commands to run in interactive sessions can go here
 end
 
 function update-mirrors
-    echo "🚀 Ищем самые быстрые зеркала..."
+    echo "🚀 [1/2] Официальные зеркала..."
     set TMPFILE (mktemp)
-    # Ищем зеркала (свежесть 6 часов)
-    rate-mirrors --save=$TMPFILE arch --max-delay=21600
-    or return 1
+    rate-mirrors --save=$TMPFILE arch --max-delay=21600 || return 1
 
-    # Применяем
-    sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup
+    sudo mv /etc/pacman.d/mirrorlist{,-backup}
     sudo mv $TMPFILE /etc/pacman.d/mirrorlist
 
-    # Обновляем базы и чистим кэш (оставляем 3 версии пакетов)
-    echo "📦 Обновляем систему..."
+    if test -f /etc/pacman.d/alhp-mirrorlist
+        echo "🚀 [2/2] ALHP зеркала..."
+        set ALHP_TMP (mktemp)
+        
+        curl -s https://alhp.GO-BUILD-IT.io/mirrorlist | rate-mirrors --save=$ALHP_TMP stdin
+
+        test -s $ALHP_TMP || return 1
+
+        sudo mv /etc/pacman.d/alhp-mirrorlist{,-backup}
+        sudo mv $ALHP_TMP /etc/pacman.d/alhp-mirrorlist
+    end
+
+    echo "📦 Обновление..."
     sudo paccache -rk3
     paru -Syyu --noconfirm
 end
