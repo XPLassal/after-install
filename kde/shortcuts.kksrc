@@ -1,6 +1,7 @@
 [ActivityManager][Global Shortcuts]
 switch-to-activity-1028b248-3ac8-4211-9205-a48b8e9dc42b=
 switch-to-activity-afaaf27c-c317-443b-8ba9-4d2d5e3e4860=
+switch-to-activity-fb092119-a72b-48ce-8f13-479e5aec5181=
 
 [Custom Commands][net.local.kitty.desktop]
 Exec=kitty
@@ -8,6 +9,7 @@ Name=kitty
 
 [KDE Keyboard Layout Switcher][Global Shortcuts]
 Switch keyboard layout to English (US)=
+Switch keyboard layout to German=
 Switch keyboard layout to Russian=
 Switch to Last-Used Keyboard Layout=Meta+Alt+L
 Switch to Next Keyboard Layout=Meta+Space
@@ -15,11 +17,11 @@ Switch to Next Keyboard Layout=Meta+Space
 [StandardShortcuts]
 AboutApp=
 AboutKDE=
-Activate Next Tab=Ctrl+PgDown; Ctrl+]
+Activate Next Tab=Ctrl+]; Ctrl+PgDown
 Activate Previous Tab=Ctrl+PgUp; Ctrl+[
 ActualSize=Ctrl+0
 AddBookmark=Ctrl+B
-Back=Alt+Left; Back
+Back=Back; Alt+Left
 BackwardWord=Ctrl+Left
 Begin=Ctrl+Home
 BeginningOfLine=Home
@@ -27,9 +29,9 @@ Clear=
 Close=Ctrl+Esc; Ctrl+W
 ConfigureNotifications=
 ConfigureToolbars=
-Copy=Ctrl+Ins; Ctrl+C
+Copy=Ctrl+C; Ctrl+Ins
 CreateFolder=Ctrl+Shift+N
-Cut=Ctrl+X; Shift+Del
+Cut=Shift+Del; Ctrl+X
 DeleteFile=Shift+Del
 DeleteWordBack=Ctrl+Backspace
 DeleteWordForward=Ctrl+Del
@@ -46,14 +48,14 @@ FindPrev=Shift+F3
 FitToHeight=
 FitToPage=
 FitToWidth=
-Forward=Forward; Alt+Right
+Forward=Alt+Right; Forward
 ForwardWord=Ctrl+Right
 FullScreen=Ctrl+Shift+F
 Goto=
 GotoLine=Ctrl+G
 GotoPage=
 Help=F1
-Home=Alt+Home; Home Page
+Home=Home Page; Alt+Home
 KeyBindings=Ctrl+Alt+,
 Mail=
 MoveToTrash=Del
@@ -61,7 +63,7 @@ New=Ctrl+N
 Next=PgDown
 NextCompletion=Ctrl+Down
 Open=Ctrl+O
-OpenContextMenu=Menu; Shift+F10
+OpenContextMenu=Shift+F10; Menu
 OpenMainMenu=F10
 OpenRecent=
 Paste=Shift+Ins; Ctrl+V
@@ -73,7 +75,7 @@ PrintPreview=
 Prior=PgUp
 Quit=Ctrl+Q
 Redo=Ctrl+Shift+Z
-Reload=Refresh; F5
+Reload=F5; Refresh
 RenameFile=F2
 Replace=Ctrl+R
 ReportBug=
@@ -113,7 +115,7 @@ mute=Volume Mute
 
 [ksmserver][Global Shortcuts]
 Halt Without Confirmation=
-Lock Session=Meta+L; Screensaver
+Lock Session=Screensaver; Meta+L
 Log Out=Ctrl+Alt+Del
 Log Out Without Confirmation=
 LogOut=
@@ -134,6 +136,7 @@ ExposeClassCurrentDesktop=
 Grid View=Meta+G
 Increase Opacity=
 Kill Window=Meta+Ctrl+Esc
+Move Tablet to Next LogicalOutput=
 Move Tablet to Next Output=
 MoveMouseToCenter=Meta+F6
 MoveMouseToFocus=Meta+F5
@@ -146,8 +149,8 @@ Setup Window Shortcut=
 Show Desktop=
 Switch One Desktop Down=Meta+Ctrl+Down
 Switch One Desktop Up=Meta+Ctrl+Up
-Switch One Desktop to the Left=Meta+Ctrl+Left; Meta+A
-Switch One Desktop to the Right=Meta+D; Meta+Ctrl+Right
+Switch One Desktop to the Left=Meta+Ctrl+Left
+Switch One Desktop to the Right=Meta+Ctrl+Right
 Switch Window Down=Meta+Alt+Down
 Switch Window Left=Meta+Alt+Left
 Switch Window Right=Meta+Alt+Right
@@ -165,6 +168,11 @@ Switch to Desktop 18=
 Switch to Desktop 19=
 Switch to Desktop 2=Meta+Alt+2
 Switch to Desktop 20=
+Switch to Desktop 21=
+Switch to Desktop 22=
+Switch to Desktop 23=
+Switch to Desktop 24=
+Switch to Desktop 25=
 Switch to Desktop 3=Meta+Alt+3
 Switch to Desktop 4=Meta+Alt+4
 Switch to Desktop 5=Meta+Alt+5
@@ -172,9 +180,9 @@ Switch to Desktop 6=Meta+Alt+6
 Switch to Desktop 7=Meta+Alt+7
 Switch to Desktop 8=Meta+Alt+8
 Switch to Desktop 9=Meta+Alt+9
-Switch to Next Desktop=
+Switch to Next Desktop=Meta+D
 Switch to Next Screen=
-Switch to Previous Desktop=
+Switch to Previous Desktop=Meta+A
 Switch to Previous Screen=
 Switch to Screen 0=
 Switch to Screen 1=
@@ -190,7 +198,7 @@ Switch to Screen to the Left=
 Switch to Screen to the Right=
 Toggle Night Color=
 Toggle Window Raise/Lower=
-Walk Through Windows=Alt+Tab; Meta+Tab
+Walk Through Windows=Meta+Tab; Alt+Tab
 Walk Through Windows (Reverse)=Alt+Shift+Tab; Meta+Shift+Tab
 Walk Through Windows Alternative=
 Walk Through Windows Alternative (Reverse)=
@@ -209,7 +217,7 @@ Window Fullscreen=Meta+F
 Window Grow Horizontal=
 Window Grow Vertical=
 Window Lower=
-Window Maximize=
+Window Maximize=Meta+S
 Window Maximize Horizontal=
 Window Maximize Vertical=
 Window Minimize=Meta+C
@@ -239,7 +247,7 @@ Window Quick Tile Top=Meta+Up
 Window Quick Tile Top Left=
 Window Quick Tile Top Right=
 Window Raise=
-Window Resize=
+Window Resize=Meta+Z
 Window Shrink Horizontal=
 Window Shrink Vertical=
 Window to Desktop 1=Meta+!
@@ -255,6 +263,11 @@ Window to Desktop 18=
 Window to Desktop 19=
 Window to Desktop 2=Meta+@
 Window to Desktop 20=
+Window to Desktop 21=
+Window to Desktop 22=
+Window to Desktop 23=
+Window to Desktop 24=
+Window to Desktop 25=
 Window to Desktop 3=Meta+#
 Window to Desktop 4=Meta+$
 Window to Desktop 5=Meta+%
@@ -287,20 +300,30 @@ pausemedia=Media Pause
 playmedia=
 playpausemedia=Media Play
 previousmedia=Media Previous
+seekbackwardmedia=Media Rewind
+seekbackwardmedialong=
+seekforwardmedia=Media Fast Forward
+seekforwardmedialong=
 stopmedia=Media Stop
 
 [net.local.kitty.desktop][Global Shortcuts]
-_launch=Meta+T; Ctrl+Alt+T
+_launch=Ctrl+Alt+T; Meta+Ctrl+T; Meta+T
+
+[org.gnome.Calculator.desktop][Global Shortcuts]
+_launch=Calculator
 
 [org.kde.dolphin.desktop][Global Shortcuts]
 _launch=Meta+E
 
 [org.kde.krunner.desktop][Global Shortcuts]
 RunClipboard=Alt+Shift+F2
-_launch=Search; Alt+Space; Alt+F2
+_launch=Search; Alt+F2; Alt+Space
 
 [org.kde.kscreen.desktop][Global Shortcuts]
 ShowOSD=Display; Meta+P
+
+[org.kde.plasma-systemmonitor.desktop][Global Shortcuts]
+_launch=Meta+Esc
 
 [org.kde.plasma.emojier.desktop][Global Shortcuts]
 _launch=Meta+Ctrl+Alt+Shift+Space; Meta+.
@@ -320,7 +343,7 @@ _launch=Print; Meta+Shift+S
 [org.kde.touchpadshortcuts.desktop][Global Shortcuts]
 DisableTouchpad=Touchpad Off
 EnableTouchpad=Touchpad On
-ToggleTouchpad=Meta+Ctrl+Zenkaku Hankaku; Meta+Ctrl+Touchpad Toggle; Touchpad Toggle
+ToggleTouchpad=Meta+Ctrl+Zenkaku Hankaku; Touchpad Toggle; Meta+Ctrl+Touchpad Toggle
 
 [org_kde_powerdevil][Global Shortcuts]
 Decrease Keyboard Brightness=Keyboard Brightness Down
@@ -352,6 +375,7 @@ activate task manager entry 8=Meta+8
 activate task manager entry 9=Meta+9
 activate widget 134=Meta+M
 activate widget 138=
+activate widget 20=Meta+M
 activate widget 3=
 activate widget 52=Meta+M
 clear-history=
@@ -372,7 +396,7 @@ switch to previous activity=
 toggle do not disturb=
 
 [systemsettings.desktop][Global Shortcuts]
-_launch=Meta+I; Tools
+_launch=Tools; Meta+I
 kcm-kscreen=
 kcm-lookandfeel=
 kcm-powerdevilprofilesconfig=
