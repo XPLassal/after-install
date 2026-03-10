@@ -1,4 +1,4 @@
 Add-AppxPackage -Path
 
-winget install Python.Python.3.14 Git.Git Microsoft.VisualStudioCode DEVCOM.JetBrainsMonoNerdFont Spotify.Spotify OBSProject.OBSStudio JetBrains.IntelliJIDEA JetBrains.PyCharm EclipseAdoptium.Temurin.21.JDK
+winget install Python.Python.3.14 Git.Git Microsoft.VisualStudioCode DEVCOM.JetBrainsMonoNerdFont Spotify.Spotify OBSProject.OBSStudio JetBrains.IntelliJIDEA JetBrains.PyCharm EclipseAdoptium.Temurin.21.JDK astral-sh.uv
 
