@@ -31,7 +31,7 @@ paru -Syu --needed \
   spotify visual-studio-code-bin \
   alhp-keyring alhp-mirrorlist \
   pacman-contrib plocate \
-  gst-libav gst-plugins-{good,bad,ugly} gst-plugin-pipewire \
+  gst-libav gst-plugins-good gst-plugin-pipewire \
   ffmpegthumbs kdegraphics-thumbnailers qt6-imageformats \
   libva-mesa-driver libva-utils \
   timeshift kitty starship eza \
@@ -40,6 +40,19 @@ paru -Syu --needed \
   gnome-clocks tuned tuned-ppd \
   noto-fonts noto-fonts-cjk noto-fonts-emoji \
   ttf-dejavu ttf-liberation noto-fonts-extra
+```
+
+```bash
+paru -Syu --needed \
+  fish zen-browser-bin telegram-desktop \
+  ttf-jetbrains-mono-nerd ttf-jetbrains-mono \
+  papirus-icon-theme vimix-cursors mission-center \
+  spotify visual-studio-code-bin \
+  gst-plugins-good \
+  libva-utils darkly-bin \
+  kitty starship \
+  apple-fonts gnome-calculator \
+  gnome-clocks tuned tuned-ppd
 ```
 
 ### Удаление лишнего (KDE)

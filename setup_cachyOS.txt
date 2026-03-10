@@ -36,4 +36,16 @@ sudo mkinitcpio -P
 
 --- Minecraft ---
 
--XX:+UnlockExperimentalVMOptions -XX:+UseZGC -XX:+ZGenerational
+-XX:+UseZGC 
+-XX:+ZGenerational 
+-XX:+UnlockExperimentalVMOptions 
+-XX:+DisableExplicitGC 
+-XX:+AlwaysPreTouch 
+-XX:+PerfDisableSharedMem 
+-XX:+UseDynamicNumberOfGCThreads 
+-XX:AllocatePrefetchStyle=3 
+-XX:+UseCriticalJavaThreadPriority 
+-XX:+UseFastUnorderedTimeStamps 
+-XX:ReservedCodeCacheSize=384M 
+-XX:+SegmentedCodeCache
+-XX:ActiveProcessorCount=4
